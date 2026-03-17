@@ -1485,6 +1485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: P_StoveKnobe_Oven
       objectReference: {fileID: 0}
+    - target: {fileID: 5010141695167944169, guid: 5d9d700b818db3c4d846270ce1b67384, type: 3}
+      propertyPath: m_AngleIncrement
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5898243219406368286, guid: 5d9d700b818db3c4d846270ce1b67384, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90

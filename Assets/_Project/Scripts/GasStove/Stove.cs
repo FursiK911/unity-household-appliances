@@ -14,7 +14,7 @@ namespace GasStove
         {
             foreach (var burner in _knobs.Values)
             {
-                burner.Initialize();
+                burner.Initialize(RandomStoveBehaviorGenerator.GenerateBehavior());
             }
             
             foreach (var knob in _knobs.Keys)
@@ -36,7 +36,7 @@ namespace GasStove
         {
             if (_knobs.TryGetValue(sender, out var burner))
             {
-                burner.ChangeState(state);
+                burner.SetCurrentGasStrength(state);
             }
         }
     }

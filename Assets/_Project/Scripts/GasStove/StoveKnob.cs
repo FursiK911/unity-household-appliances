@@ -33,7 +33,7 @@ namespace GasStove
         private void HandleValueChange(float value)
         {
             Debug.Log($"[StoveKnob] HandleValueChange: {value}", this);
-            if (Constants.KnobStates.TryGetValue(value, out var state))
+            if (Constants.KnobValueToKnobState.TryGetValue(value, out var state))
             {
                 ChangeHandleState(state);
             }
@@ -55,12 +55,12 @@ namespace GasStove
             OnStoveHandleChange?.Invoke(this, _handleState);
         }
 
-        private void OnValidate()
-        {
-            if (_xrKnob == null)
-            {
-                _xrKnob = GetComponent<XRKnob>();
-            }
-        }
+        // private void OnValidate()
+        // {
+        //     if (_xrKnob == null)
+        //     {
+        //         _xrKnob = GetComponent<XRKnob>();
+        //     }
+        // }
     }
 }
