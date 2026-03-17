@@ -1,4 +1,5 @@
 ﻿using GasStove;
+using Matches;
 using UnityEngine;
 
 namespace Gameplay
@@ -7,10 +8,13 @@ namespace Gameplay
     {
         [SerializeField]
         private Stove _stove;
+        [SerializeField] 
+        private Matchbox _matchbox;
         
         private void Awake()
         {
             _stove.Initialize();
+            _matchbox.Initialize();
         }
     }
 }

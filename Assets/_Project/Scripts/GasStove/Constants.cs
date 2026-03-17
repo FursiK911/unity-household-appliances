@@ -17,9 +17,9 @@ namespace GasStove
         
         public static readonly Dictionary<KnobState, float> KnobStateToGasStrength = new()
         {
-            { KnobState.Low, GAS_STRENGTH_DISABLE },
-            { KnobState.High, GAS_STRENGTH_LOW },
-            { KnobState.Disabled, GAS_STRENGTH_HIGH }
+            { KnobState.Disabled, GAS_STRENGTH_DISABLE },
+            { KnobState.Low, GAS_STRENGTH_LOW },
+            { KnobState.High, GAS_STRENGTH_HIGH }
         };
     }
 }
