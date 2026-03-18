@@ -8,6 +8,7 @@ namespace GasStove
     {
         [Header("References")]
         [SerializeField] private XRKnob _xrKnob;
+        [SerializeField] private AudioSource _knobAudioSource;
         
         private KnobRotatePosition _knobRotatePosition = KnobRotatePosition.Disabled;
         
@@ -52,6 +53,9 @@ namespace GasStove
             
             _knobRotatePosition = rotatePosition;
             Debug.Log($"[StoveKnob] new rotatePosition {rotatePosition}");
+            
+            _knobAudioSource.Play();
+            
             OnStoveHandleChange?.Invoke(this, _knobRotatePosition);
         }
 
