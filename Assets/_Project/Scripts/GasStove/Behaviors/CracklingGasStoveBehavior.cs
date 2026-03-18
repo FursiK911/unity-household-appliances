@@ -11,9 +11,9 @@ namespace GasStove
             burner.EnableCracklingEffect();
         }
 
-        public void AdjustFlame(Burner burner)
+        public void Light(Burner burner)
         {
-            Debug.Log("[CracklingGasStoveBehavior]: AdjustFlame");
+            Debug.Log("[CracklingGasStoveBehavior]: Light");
         }
 
         public void TurnOffGas(Burner burner)

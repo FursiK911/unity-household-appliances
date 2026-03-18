@@ -36,7 +36,7 @@ namespace GasStove
         {
             if (_knobs.TryGetValue(sender, out var burner))
             {
-                burner.SetCurrentGasStrength(state);
+                burner.ChangeCurrentGasStrength(state);
             }
         }
     }

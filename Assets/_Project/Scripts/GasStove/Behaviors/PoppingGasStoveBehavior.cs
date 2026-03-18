@@ -11,9 +11,9 @@ namespace GasStove.Behaviors
             burner.EnablePoppingEffect();
         }
 
-        public void AdjustFlame(Burner burner)
+        public void Light(Burner burner)
         {
-            Debug.Log("[PoppingGasStoveBehavior]: AdjustFlame");
+            Debug.Log("[PoppingGasStoveBehavior]: Light");
         }
 
         public void TurnOffGas(Burner burner)

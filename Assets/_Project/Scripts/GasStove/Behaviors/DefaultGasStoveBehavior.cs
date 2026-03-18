@@ -8,11 +8,18 @@ namespace GasStove.Behaviors
         public void TurnOnGas(Burner burner) 
         {
             Debug.Log("[DefaultGasStoveBehavior] TurnOnGas");
-            burner.EnableGasEffect();
+            if (!burner.IsBurning)
+            {
+                burner.EnableGasEffect();
+            }
+            else
+            {
+                burner.EnableBurnerEffect();
+            }
         }
-        public void AdjustFlame(Burner burner)
+        public void Light(Burner burner)
         {
-            Debug.Log("[DefaultGasStoveBehavior] AdjustFlame");
+            Debug.Log("[DefaultGasStoveBehavior] Light");
             burner.DisableGasEffect();
             burner.EnableBurnerEffect();
         }

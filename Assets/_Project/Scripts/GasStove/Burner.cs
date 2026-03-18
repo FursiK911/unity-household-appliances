@@ -14,6 +14,9 @@ namespace GasStove
         
         private IGasStoveBehavior _behavior;
         private float _currentGasStrength;
+        private bool _isBurning;
+
+        public bool IsBurning => _isBurning;
         
         public void Initialize(IGasStoveBehavior behavior)
         {
@@ -25,7 +28,7 @@ namespace GasStove
             _behavior = behavior;
         }
 
-        public void SetCurrentGasStrength(KnobState state)
+        public void ChangeCurrentGasStrength(KnobState state)
         {
             if (!Constants.KnobStateToGasStrength.TryGetValue(state, out var strength))
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
@@ -42,12 +45,19 @@ namespace GasStove
             }
         }
 
+        public void LightBurner()
+        {
+            _isBurning = true;
+            _behavior.Light(this);
+        }
+
         public void EnableGasEffect()
         {
             switch (_currentGasStrength)
             {
                 case Constants.GAS_STRENGTH_DISABLE:
                     _gasEffect.SetActive(false);
+                    _isBurning = false;
                     break;
                 case Constants.GAS_STRENGTH_LOW:
                     _gasEffect.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -75,11 +85,11 @@ namespace GasStove
                     _burnerEffect.SetActive(false);
                     break;
                 case Constants.GAS_STRENGTH_LOW:
-                    _burnerEffect.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    _burnerEffect.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
                     _burnerEffect.SetActive(true);
                     break;
                 case Constants.GAS_STRENGTH_HIGH:
-                    _burnerEffect.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+                    _burnerEffect.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
                     _burnerEffect.SetActive(true);
                     break;
                 default:

@@ -40,6 +40,8 @@ namespace Matches
         public void GetMatch()
         {
             var match = Instantiate(_matchPrefab);
+            match.Initialize();
+            
             HoldMatch(match);
         }
 
@@ -51,15 +53,25 @@ namespace Matches
             }
 
             _holdedMatch = match;
+            _holdedMatch.DisableRigidbody();
             _holdedMatch.transform.SetParent(_matchSpawnTransform);
             _holdedMatch.transform.localPosition = Vector3.zero;
             _holdedMatch.transform.localRotation = Quaternion.identity;
+            _holdedMatch.OnSelectEnter += HandleSelectMatch;
         }
 
         public void ReleaseMatch()
         {
+            _holdedMatch.OnSelectEnter -= HandleSelectMatch;
             _holdedMatch.transform.SetParent(null);
             _holdedMatch.EnableRigidbody();
+            _holdedMatch = null;
+        }
+        
+        private void HandleSelectMatch(SelectEnterEventArgs args)
+        {
+            _holdedMatch.OnSelectEnter -= HandleSelectMatch;
+            _holdedMatch = null;
         }
     }
 }

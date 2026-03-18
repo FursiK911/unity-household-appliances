@@ -2149,7 +2149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.EntryPoint
   _stove: {fileID: 1166929774}
-  _matchbox: {fileID: 0}
+  _matchbox: {fileID: 3439118500989723630}
 --- !u!4 &1233177472
 Transform:
   m_ObjectHideFlags: 0
@@ -5664,6 +5664,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3439118500989723630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2620235836515622347, guid: 24884938effe4e649b4e92e2d3dcc48e, type: 3}
+  m_PrefabInstance: {fileID: 8031253872178744482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7eab0ed3fd79a8478eb73ea1816c391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Matchbox
 --- !u!114 &3807310294900035020
 MonoBehaviour:
   m_ObjectHideFlags: 0
