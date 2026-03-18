@@ -17,6 +17,10 @@ namespace GasStove
         private bool _isBurning;
 
         public bool IsBurning => _isBurning;
+        public bool IsGasOn => _currentGasStrength > 0;
+        
+        public event Action<float> CurrentGasStrengthChanged;
+        public event Action<bool> BurningChanged;
         
         public void Initialize(IGasStoveBehavior behavior)
         {

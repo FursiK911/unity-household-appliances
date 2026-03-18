@@ -405,6 +405,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1040f3b515cd0d43b62c0e0c0f31cd6, type: 3}
+--- !u!114 &219041448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5853953722555372004, guid: e1040f3b515cd0d43b62c0e0c0f31cd6, type: 3}
+  m_PrefabInstance: {fileID: 219041447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 185f2e058da25fa4ebdf3be913b18204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Instruments.GasAnalyzer
 --- !u!1 &235184210
 GameObject:
   m_ObjectHideFlags: 0
@@ -2150,6 +2161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gameplay.EntryPoint
   _stove: {fileID: 1166929774}
   _matchbox: {fileID: 3439118500989723630}
+  _gasAnalyzer: {fileID: 219041448}
 --- !u!4 &1233177472
 Transform:
   m_ObjectHideFlags: 0
@@ -2159,7 +2171,7 @@ Transform:
   m_GameObject: {fileID: 1233177470}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.48723, y: 1.35255, z: -15.76656}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3522,6 +3534,56 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1933528816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1933528818}
+  - component: {fileID: 1933528817}
+  m_Layer: 0
+  m_Name: GameplayProcessChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1933528817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933528816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc4a4007bc04b74ba6d13ae6e07cee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gameplay.GameplayProcessChecker
+  _burners:
+  - {fileID: 1918606577867459138}
+  - {fileID: 1918606577867459137}
+  - {fileID: 1918606577867459136}
+  - {fileID: 1918606577867459135}
+  _gasAnalyzer: {fileID: 219041448}
+--- !u!4 &1933528818
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933528816}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959883322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5140,6 +5202,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6803635178898279971, guid: bc322e24b1d2cca46ad7c4f7fbeef148, type: 3}
   m_PrefabInstance: {fileID: 1918606577867459133}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1918606577867459135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4746317031561339634, guid: bc322e24b1d2cca46ad7c4f7fbeef148, type: 3}
+  m_PrefabInstance: {fileID: 1918606577867459133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3feb2590424f84824dc44fa033ff73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GasStove.Burner
+--- !u!114 &1918606577867459136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1483748551989403479, guid: bc322e24b1d2cca46ad7c4f7fbeef148, type: 3}
+  m_PrefabInstance: {fileID: 1918606577867459133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3feb2590424f84824dc44fa033ff73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GasStove.Burner
+--- !u!114 &1918606577867459137 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3035892754940457431, guid: bc322e24b1d2cca46ad7c4f7fbeef148, type: 3}
+  m_PrefabInstance: {fileID: 1918606577867459133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3feb2590424f84824dc44fa033ff73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GasStove.Burner
+--- !u!114 &1918606577867459138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2579228934839201325, guid: bc322e24b1d2cca46ad7c4f7fbeef148, type: 3}
+  m_PrefabInstance: {fileID: 1918606577867459133}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c3feb2590424f84824dc44fa033ff73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GasStove.Burner
 --- !u!1001 &2181405618988545911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7783,5 +7889,6 @@ SceneRoots:
   - {fileID: 1918606577867459133}
   - {fileID: 1896822563}
   - {fileID: 8031253872178744482}
-  - {fileID: 1233177472}
   - {fileID: 219041447}
+  - {fileID: 1233177472}
+  - {fileID: 1933528818}
