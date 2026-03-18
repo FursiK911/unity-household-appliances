@@ -14,6 +14,9 @@ namespace Matches
         
         public void Initialize()
         {
+            _xrGrabInteractable.activated.RemoveListener(HandleActivate);
+            _xrGrabInteractable.deactivated.RemoveListener(HandleDeactivate);
+            
             _xrGrabInteractable.activated.AddListener(HandleActivate);
             _xrGrabInteractable.deactivated.AddListener(HandleDeactivate);
         }

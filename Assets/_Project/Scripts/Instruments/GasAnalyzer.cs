@@ -17,6 +17,9 @@ namespace Instruments
 
         public void Initialize()
         {
+            _sensor.OnGasDetected -= HandleGasDetected;
+            _sensor.OnGasLost -= HandleGasLost;
+            
             _display.Initialize();
             
             _sensor.OnGasDetected += HandleGasDetected;

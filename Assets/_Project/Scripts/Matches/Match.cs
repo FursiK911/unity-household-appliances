@@ -17,7 +17,11 @@ namespace Matches
 
         public void Initialize()
         {
+            _xrGrabInteractable.selectEntered.RemoveListener(HandleSelectEntered);
+            _xrGrabInteractable.selectExited.RemoveListener(HandleSelectExited);
+            
             _burnEffect.SetActive(false);
+            
             _xrGrabInteractable.selectEntered.AddListener(HandleSelectEntered);
             _xrGrabInteractable.selectExited.AddListener(HandleSelectExited);
         }

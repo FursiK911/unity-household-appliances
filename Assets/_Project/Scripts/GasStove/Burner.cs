@@ -16,6 +16,7 @@ namespace GasStove
         private float _currentGasStrength;
         private bool _isBurning;
 
+        public float CurrentGasStrength => _currentGasStrength;
         public bool IsBurning => _isBurning;
         public bool IsGasOn => _currentGasStrength > 0;
         
@@ -32,14 +33,15 @@ namespace GasStove
             _behavior = behavior;
         }
 
-        public void ChangeCurrentGasStrength(KnobState state)
+        public void ChangeCurrentGasStrength(KnobRotatePosition rotatePosition)
         {
-            if (!Constants.KnobStateToGasStrength.TryGetValue(state, out var strength))
-                throw new ArgumentOutOfRangeException(nameof(state), state, null);
+            if (!Constants.KnobStateToGasStrength.TryGetValue(rotatePosition, out var strength))
+                throw new ArgumentOutOfRangeException(nameof(rotatePosition), rotatePosition, null);
             
             _currentGasStrength = strength;
+            CurrentGasStrengthChanged?.Invoke(strength);
 
-            if (state == KnobState.Disabled)
+            if (rotatePosition == KnobRotatePosition.Disabled)
             {
                 _behavior.TurnOffGas(this);
             }
@@ -55,38 +57,38 @@ namespace GasStove
             _behavior.Light(this);
         }
 
-        public void EnableGasEffect()
+        public void ChangeGasEffect(float gasStrength)
         {
-            switch (_currentGasStrength)
+            switch (gasStrength)
             {
                 case Constants.GAS_STRENGTH_DISABLE:
-                    _gasEffect.SetActive(false);
-                    _isBurning = false;
+                    DisableGasEffect();
                     break;
                 case Constants.GAS_STRENGTH_LOW:
-                    _gasEffect.transform.localScale = new Vector3(1f, 1f, 1f);
-                    _gasEffect.SetActive(true);
-                    break;
-                case Constants.GAS_STRENGTH_HIGH:
                     _gasEffect.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                     _gasEffect.SetActive(true);
                     break;
+                case Constants.GAS_STRENGTH_HIGH:
+                    _gasEffect.transform.localScale = new Vector3(1f, 1f, 1f);
+                    _gasEffect.SetActive(true);
+                    break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(_currentGasStrength), _currentGasStrength, null);
+                    throw new ArgumentOutOfRangeException(nameof(gasStrength), gasStrength, null);
             }
         }
 
         public void DisableGasEffect()
         {
             _gasEffect.SetActive(false);
+            _isBurning = false;
         }
 
-        public void EnableBurnerEffect()
+        public void ChangeBurnerEffect(float gasStrength)
         {
-            switch (_currentGasStrength)
+            switch (gasStrength)
             {
                 case Constants.GAS_STRENGTH_DISABLE:
-                    _burnerEffect.SetActive(false);
+                    DisableBurnerEffect();
                     break;
                 case Constants.GAS_STRENGTH_LOW:
                     _burnerEffect.transform.localScale = new Vector3(0.05f, 0.05f, 0.05f);
@@ -97,7 +99,7 @@ namespace GasStove
                     _burnerEffect.SetActive(true);
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(_currentGasStrength), _currentGasStrength, null);
+                    throw new ArgumentOutOfRangeException(nameof(gasStrength), gasStrength, null);
             }
         }
 

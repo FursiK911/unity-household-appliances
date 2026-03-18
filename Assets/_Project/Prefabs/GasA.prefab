@@ -1323,9 +1323,9 @@ MonoBehaviour:
   _tmpText: {fileID: 5165605457170683885}
   _panelImage: {fileID: 6078548853594278888}
   _normalText: OK
-  _normalColor: {r: 0.007843138, g: 0.3882353, b: 0.007843138, a: 0}
+  _normalColor: {r: 0.007843138, g: 0.3882353, b: 0.007843138, a: 1}
   _gasText: GAS
-  _gasColor: {r: 0.3882353, g: 0.044228338, b: 0.007843145, a: 0}
+  _gasColor: {r: 0.3882353, g: 0.044228338, b: 0.007843145, a: 1}
 --- !u!1 &7794558746044179659
 GameObject:
   m_ObjectHideFlags: 0

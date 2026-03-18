@@ -9,9 +9,9 @@ namespace GasStove
         [Header("References")]
         [SerializeField] private XRKnob _xrKnob;
         
-        private KnobState _handleState = KnobState.Disabled;
+        private KnobRotatePosition _knobRotatePosition = KnobRotatePosition.Disabled;
         
-        public event Action<StoveKnob, KnobState> OnStoveHandleChange;
+        public event Action<StoveKnob, KnobRotatePosition> OnStoveHandleChange;
 
         public void Initialize()
         {
@@ -32,7 +32,7 @@ namespace GasStove
 
         private void HandleValueChange(float value)
         {
-            Debug.Log($"[StoveKnob] HandleValueChange: {value}", this);
+            //Debug.Log($"[StoveKnob] HandleValueChange: {value}", this);
             if (Constants.KnobValueToKnobState.TryGetValue(value, out var state))
             {
                 ChangeHandleState(state);
@@ -43,16 +43,16 @@ namespace GasStove
             }
         }
 
-        private void ChangeHandleState(KnobState state)
+        private void ChangeHandleState(KnobRotatePosition rotatePosition)
         {
-            if (state == _handleState)
+            if (rotatePosition == _knobRotatePosition)
             {
                 return;
             }
             
-            _handleState = state;
-            Debug.Log($"[StoveKnob] new state {state}");
-            OnStoveHandleChange?.Invoke(this, _handleState);
+            _knobRotatePosition = rotatePosition;
+            Debug.Log($"[StoveKnob] new rotatePosition {rotatePosition}");
+            OnStoveHandleChange?.Invoke(this, _knobRotatePosition);
         }
 
         // private void OnValidate()

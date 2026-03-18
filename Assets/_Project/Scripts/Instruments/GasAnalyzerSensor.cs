@@ -19,7 +19,7 @@ namespace Instruments
 
             _gasContacts++;
 
-            if (_gasContacts == 1)
+            if (_gasContacts > 0)
             {
                 OnGasDetected?.Invoke();
             }

@@ -32,11 +32,11 @@ namespace GasStove
             }
         }
 
-        private void HandleStoveHandleChange(StoveKnob sender, KnobState state)
+        private void HandleStoveHandleChange(StoveKnob sender, KnobRotatePosition rotatePosition)
         {
             if (_knobs.TryGetValue(sender, out var burner))
             {
-                burner.ChangeCurrentGasStrength(state);
+                burner.ChangeCurrentGasStrength(rotatePosition);
             }
         }
     }
