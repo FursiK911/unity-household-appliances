@@ -2558,7 +2558,7 @@ MonoBehaviour:
   - {fileID: 1918606577867459136}
   - {fileID: 1918606577867459135}
   _gasAnalyzer: {fileID: 219041448}
-  _finishedView: {fileID: 0}
+  _finishedView: {fileID: 288663156}
 --- !u!4 &1933528818
 Transform:
   m_ObjectHideFlags: 0
