@@ -4,6 +4,8 @@ This project is a **demo assignment for Me Group** and is currently **still in d
 
 It showcases a VR simulation of interacting with a gas stove, including match usage, burner control, ignition, and gas detection.
 
+Full demo: https://youtube.com/shorts/uVQ7mqlyryQ?feature=share
+
 ---
 
 ## 🎮 Features
